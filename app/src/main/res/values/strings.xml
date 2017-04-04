@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Beoquiz</string>
+    <string name="true_string">Tacno</string>
+    <string name="false_string">Netacno</string>
+    <string name="question1">Beograd lezi na 30 brda</string>
+    <string name="question2">Kalemegdan se nalazi na litici koja je visoka 300 metara</string>
+    <string name="question3">Pobednik je sagradjen za 100 dana</string>
+    <string name="question4">Pobednik je sagradjen 1928</string>
+    <string name="question5">Hram Svetog Save se nalazi na Vracaru</string>
+    <string name="question6">U Beogradu ima 1.3 miliona ljudi</string>
+    <string name="question7">Novi Beograd ima vise stanovnika od Novog Sada</string>
+    <string name="question8">Zemun se ranije zvao Taurunum</string>
+    <string name="question9">Beograd je dobio ime po Ljubisi Preletacevicu Belom</string>
+    <string name="question10">Na Tasmajdanu es nalazi pecina iz koje su kopali kamenje za pravljenje sarkofaga</string>
+    <string name="question_correct">Tacan odgovor</string>
+    <string name="question_incorrect">Netacan odgovor</string>
+    <string name="previous">Prethodni</string>
+    <string name="next">Sledeci</string>
 </resources>
