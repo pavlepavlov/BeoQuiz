@@ -1,2 +1,1 @@
-# Za ljude koji ne znaju da koriste git
-## Naucite git.
+# Za ljude koji ne znaju da koriste git - **Naučite git**
