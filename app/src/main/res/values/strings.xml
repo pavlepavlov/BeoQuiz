@@ -2,18 +2,24 @@
     <string name="app_name">Beoquiz</string>
     <string name="true_string">Tacno</string>
     <string name="false_string">Netacno</string>
-    <string name="question1">Beograd lezi na 30 brda</string>
-    <string name="question2">Kalemegdan se nalazi na litici koja je visoka 300 metara</string>
-    <string name="question3">Pobednik je sagradjen za 100 dana</string>
-    <string name="question4">Pobednik je sagradjen 1928</string>
-    <string name="question5">Hram Svetog Save se nalazi na Vracaru</string>
-    <string name="question6">U Beogradu ima 1.3 miliona ljudi</string>
-    <string name="question7">Novi Beograd ima vise stanovnika od Novog Sada</string>
-    <string name="question8">Zemun se ranije zvao Taurunum</string>
-    <string name="question9">Beograd je dobio ime po Ljubisi Preletacevicu Belom</string>
-    <string name="question10">Na Tasmajdanu es nalazi pecina iz koje su kopali kamenje za pravljenje sarkofaga</string>
+    <string-array name="questions">
+        <item>Na Tasmajdanu es nalazi pecina iz koje su kopali kamenje za pravljenje sarkofaga</item>
+        <item>Beograd je dobio ime po Ljubisi Preletacevicu Belom</item>
+        <item>Pobednik je sagradjen 1928</item>
+        <item>Hram Svetog Save se nalazi na Vracaru</item>
+        <item>U Beogradu ima 1.3 miliona ljudi</item>
+        <item>Zemun se ranije zvao Taurunum</item>
+        <item>Beograd lezi na 30 brda</item>
+        <item>Kalemegdan se nalazi na litici koja je visoka 300 metara</item>
+        <item>Pobednik je sagradjen za 100 dana</item>
+        <item>Novi Beograd ima vise stanovnika od Novog Sada</item>
+    </string-array>
     <string name="question_correct">Tacan odgovor</string>
     <string name="question_incorrect">Netacan odgovor</string>
     <string name="previous">Prethodni</string>
     <string name="next">Sledeci</string>
+    <string name="skip">Preskoci</string>
+    <string name="restart">Ponovi kviz</string>
+    <string name="quit">Izadji</string>
+    <string name="end_game">Ovo je kraj kviza</string>
 </resources>

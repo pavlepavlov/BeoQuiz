@@ -5,19 +5,19 @@ package com.creitive.beoquiz;
  */
 
 public class Question {
-    private int mText;
+    private String mText;
     private boolean mAnswerTrue;
 
-    public Question(int text,boolean answerTrue){
+    public Question(String text,boolean answerTrue){
         mText = text;
         mAnswerTrue = answerTrue;
     }
 
-    public int getText() {
+    public String getText() {
         return mText;
     }
 
-    public void setText(int text) {
+    public void setText(String text) {
         mText = text;
     }
 
