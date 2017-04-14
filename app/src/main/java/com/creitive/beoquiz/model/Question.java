@@ -1,4 +1,4 @@
-package com.creitive.beoquiz;
+package com.creitive.beoquiz.model;
 
 /**
  * This class represents one question in the quiz
@@ -17,15 +17,8 @@ public class Question {
         return mText;
     }
 
-    public void setText(String text) {
-        mText = text;
-    }
-
     public boolean isAnswerTrue() {
         return mAnswerTrue;
     }
 
-    public void setAnswerTrue(boolean answerTrue) {
-        mAnswerTrue = answerTrue;
-    }
 }

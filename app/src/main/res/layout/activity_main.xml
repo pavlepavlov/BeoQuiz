@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="com.creitive.beoquiz.MainActivity">
+    tools:context="com.creitive.beoquiz.view.MainActivity">
 
     <ImageView
         android:layout_width="wrap_content"

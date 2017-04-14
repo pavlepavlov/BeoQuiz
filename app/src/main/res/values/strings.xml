@@ -22,4 +22,5 @@
     <string name="restart">Ponovi kviz</string>
     <string name="quit">Izadji</string>
     <string name="end_game">Ovo je kraj kviza</string>
+    <string name="current_score">Vas skor je :</string>
 </resources>

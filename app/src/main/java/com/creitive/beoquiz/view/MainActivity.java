@@ -1,14 +1,19 @@
-package com.creitive.beoquiz;
+package com.creitive.beoquiz.view;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.creitive.beoquiz.R;
+import com.creitive.beoquiz.controller.QuizController;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String INDEX_KEY = "com.creitive.beoquiz.index";
+    private static final long SECOND = 1000;
 
     private TextView tvQuestion;
     private QuizController mController;
@@ -16,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnTrue;
     private Button btnSkip;
 
+    private EndQuizDialog mDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +65,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void makeToast(int stringId) {
-        //Toast.makeText(this, stringId, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, stringId, Toast.LENGTH_SHORT).show();
+        enableAllButtons(false);
+        Handler handler = new Handler();
+        final Runnable enableViews = new Runnable() {
+            @Override
+            public void run() {
+                enableAllButtons(true);
+            }
+        };
+        handler.postDelayed(enableViews, SECOND);
     }
 
     public void handleRestart() {
@@ -73,14 +87,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showEndQuizDialog() {
-        EndQuizDialog dialog = new EndQuizDialog();
-        dialog.show(getFragmentManager(), "TAG");
+        mDialog = new EndQuizDialog();
+        mDialog.show(getFragmentManager(), "TAG");
         enableAllButtons(false);
     }
 
-    private void enableAllButtons(boolean enabled) {
+    private void enableAllButtons(final boolean enabled) {
         btnFalse.setEnabled(enabled);
         btnTrue.setEnabled(enabled);
         btnSkip.setEnabled(enabled);
+    }
+
+    @Override
+    protected void onDestroy() {
+        mController.saveCurrentState();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(mDialog != null){
+            //nothing
+        }
+        else {
+            super.onBackPressed();
+        }
     }
 }
