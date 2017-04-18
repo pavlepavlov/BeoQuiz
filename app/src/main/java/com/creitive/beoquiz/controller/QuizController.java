@@ -1,8 +1,11 @@
 package com.creitive.beoquiz.controller;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.widget.Toast;
 
+import com.creitive.beoquiz.view.CheatActivity;
 import com.creitive.beoquiz.view.EndQuizDialog;
 import com.creitive.beoquiz.view.MainActivity;
 import com.creitive.beoquiz.R;
@@ -20,6 +23,8 @@ import java.util.List;
 public class QuizController {
 
     private static final String INDEX_KEY = "com.creitive.beoquiz.index";
+    public static final String CHEAT_KEY = "com.creitive.beoquiz.cheat";
+    private static final int CHEAT_REQUEST = 37;
 
     private MainActivity mView;
     private Quiz mQuiz;
@@ -89,10 +94,27 @@ public class QuizController {
     public void restart() {
         restartQuiz();
         displayCurrentQuestion();
+        mPrefs.edit().putBoolean(CHEAT_KEY,false).apply();
     }
 
     public void saveCurrentState() {
         String jsonQuiz = new Gson().toJson(mQuiz);
         mPrefs.edit().putString(INDEX_KEY,jsonQuiz).apply();
+    }
+
+    public void cheat() {
+        if(!mPrefs.getBoolean(CHEAT_KEY,false)) {
+            Intent intent = new Intent(mView, CheatActivity.class);
+            intent.putExtra(CHEAT_KEY,mQuiz.getCurrentQuestion().isAnswerTrue());
+            mView.startActivityForResult(intent,CHEAT_REQUEST);
+        }
+        else{
+            Toast.makeText(mView, "Gde si posao druze?", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public void onCheatResult(boolean didCheat) {
+        mPrefs.edit().putBoolean(CHEAT_KEY,didCheat).apply();
     }
 }

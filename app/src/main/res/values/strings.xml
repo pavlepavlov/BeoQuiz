@@ -23,4 +23,6 @@
     <string name="quit">Izadji</string>
     <string name="end_game">Ovo je kraj kviza</string>
     <string name="current_score">Vas skor je :</string>
+    <string name="cheat">Varaj</string>
+    <string name="are_you_sure">Da li ste sigurni da hocete da varate?</string>
 </resources>

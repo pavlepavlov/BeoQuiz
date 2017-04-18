@@ -1,5 +1,7 @@
 package com.creitive.beoquiz.view;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -14,12 +16,14 @@ import com.creitive.beoquiz.controller.QuizController;
 public class MainActivity extends AppCompatActivity {
 
     private static final long SECOND = 1000;
+    public static final String CHEAT = "com.creitive.beoquiz.cheat";
 
     private TextView tvQuestion;
     private QuizController mController;
     private Button btnFalse;
     private Button btnTrue;
     private Button btnSkip;
+    private Button btnCheat;
 
     private EndQuizDialog mDialog;
 
@@ -31,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         btnFalse = (Button) findViewById(R.id.btnFalse);
         btnTrue = (Button) findViewById(R.id.btnTrue);
         btnSkip = (Button) findViewById(R.id.btnSkip);
+        btnCheat = (Button) findViewById(R.id.btnCheat);
         tvQuestion = (TextView) findViewById(R.id.tvQuestion);
 
         mController = new QuizController();
@@ -56,6 +61,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mController.skipQuestion();
+            }
+        });
+
+        btnCheat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mController.cheat();
             }
         });
     }
@@ -112,5 +124,10 @@ public class MainActivity extends AppCompatActivity {
         else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        mController.onCheatResult(resultCode == Activity.RESULT_OK);
     }
 }
